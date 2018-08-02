@@ -6,7 +6,8 @@
     </div>
     <!-- mobile -->
     <div id="mobile" v-else>
-      <div id="nav">
+      <!-- 暂时去掉 -->
+      <div id="nav" v-if="false">
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link>
       </div>
@@ -34,7 +35,6 @@
   }
   #mobile {
     font-size: 24px;
-    text-align: center;
     #nav {
       margin-top: .15rem;
     }
