@@ -1,11 +1,16 @@
 <template>
   <div class="wrap">
-    <div class="banner">
-      <div class="headline">
-        <p class="important">[车来货往]</p>
-        <p class="normal">专业运输信息平台</p>
+    <!-- <div ref="wrapper">
+      <div  class="banner-wrapper">
+        <div class="banner banner-item"  v-for='(item, index) in banners' :key='item.url +index ' :style='{backgroundImage: "url(" + item.url + ")"}'>
+          <div class="headline" >
+            <p class="important">[车来货往]</p>
+            <p class="normal">专业运输信息平台</p>
+          </div>
+        </div>
       </div>
-    </div>
+    </div> -->
+    <self-swipe :arrList="banners" :autoTimerInterval="1500"></self-swipe>
     <div class="header">
       <div class="statistics-info">
         <span class="attention">关注： 2000人</span>
@@ -13,7 +18,7 @@
       </div>
       <div class="nav">
         <div class="ul" v-for="item in navList" :key="item.name">
-          <span class="icon"></span>
+          <img class="icon" :src="item.logoItem" />
           <span class="name">{{ item.name }}</span>
         </div>
       </div>
@@ -26,36 +31,51 @@
 
 <script>
 // @ is an alias to /src
+import {tabNavList} from '@/util/basicConfig'
+import getBanners from '@/util/common'
+import selfSwipe from '@/baseComponents/selfSwipe'
 export default {
   name: 'home',
   data () {
     return {
-      navList: [
-        { name: '车源信息' },
-        { name: '货源信息' },
-        { name: '发布信息' },
-        { name: '保险服务' },
-        { name: '身份验证' },
-        { name: '积分商城' },
-        { name: '运费查询' },
-        { name: '里程税查询' },
-        { name: '卡友助手' },
-      ]
+      navList: tabNavList,
+      banners: getBanners()
     }
+  },
+  components:{
+    selfSwipe
+  },
+  methods: {
+    
+  },
+  created () {
+   
   }
 }
 </script>
 <style scoped lang="scss">
   .wrap{
     width: 100%;
+    .banner-wrapper{
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+    }
     .banner{
       position: relative;
       width: 100%;
       height: 2rem;
-      background-image: url('../assets/banner.png');
+      // background-image: url('../assets/banner.png');
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
+      &.banner-item{
+        // float: left;
+        display:inline-block;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-align: center;
+      }
       .headline{
         position: absolute;
         top: 40%;
@@ -100,14 +120,14 @@ export default {
           .icon{
             margin: 0 auto;
             border-radius: 50%;
-            background-color: #5BA8FB;
+            background-color: #fff;
             display: block;
-            width: .5rem;
-            height: .5rem;
+            width: .4rem;
+            height: .4rem;
           }
           .name{
             margin: 0 auto;
-            font-size: .18rem;
+            font-size: .16rem;
           }
         }
       }
