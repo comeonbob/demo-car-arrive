@@ -11,12 +11,14 @@
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link>
       </div>
-      <router-view/>
+      <router-view></router-view>
+      <footer-tabs/>
     </div>
   </div>
 </template>
 <script>
   import ChoiceDevice from './components/ChoiceDevice/ChoiceDevice'
+  import footerTabs from '@/baseComponents/footerTab'
   import {IsPC} from './utils/common.js'
   export default {
     name: 'App',
@@ -26,7 +28,8 @@
       }
     },
     components: {
-      ChoiceDevice
+      ChoiceDevice,
+      footerTabs
     }
   }
 </script>
