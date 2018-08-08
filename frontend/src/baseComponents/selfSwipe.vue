@@ -53,6 +53,6 @@ export default {
   .swiper-slide {
     background-position: center;
     background-size: cover;
-    height:200px;
+    height:2rem;
   }
 </style>
