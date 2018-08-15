@@ -2,13 +2,13 @@
 <template>
   <div class="tab-wrapper">
     <ul class="tabs-cont">
-      <li class="tab-item tab-item-one">
+      <li class="tab-item tab-item-one" @click="backHome">
         <span class="icon-cont"></span>
       </li>
-      <li class="tab-item tab-item-two">
+      <li class="tab-item tab-item-two" @click="editInfo">
         <span class="icon-cont"></span>
       </li>
-      <li class="tab-item tab-item-three">
+      <li class="tab-item tab-item-three" @click="personInfo">
         <span class="icon-cont"></span>
       </li>
     </ul>
@@ -22,6 +22,20 @@ export default {
       msg: 'eeeee'  
     }
   },
+  methods: {
+    // 返回主页
+    backHome () {
+      this.$router.push({name: "/"})
+    },
+    // 编辑信息
+    editInfo () {
+      this.$router.push({name: "EditInfo"})
+    },
+    // 个人中心
+    personInfo () {
+      this.$router.push({name: "PersonInfo"})
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -41,7 +55,6 @@ export default {
       .tab-item{
         flex:1;
         height: 100%;
-        line-height:0.3rem;
         .icon-cont{
           display: inline-block;
           width:.4rem;
