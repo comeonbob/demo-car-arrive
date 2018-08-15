@@ -23,7 +23,7 @@
 </template>
 <script>
   import ChoiceDevice from './components/ChoiceDevice/ChoiceDevice'
-  import footerTabs from '@/views/footerTab'
+  import FooterTabs from '@/views/FooterTab'
   import {IsPC} from './utils/common.js'
   export default {
     name: 'App',
@@ -34,7 +34,7 @@
     },
     components: {
       ChoiceDevice,
-      footerTabs
+      FooterTabs
     }
   }
 </script>
