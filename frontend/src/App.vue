@@ -11,14 +11,19 @@
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link>
       </div>
-      <router-view></router-view>
+      <!--keep-alive保留组件缓层，优化项-->
+      <keep-alive>
+        <router-view v-if="$route.meta.keepAlive"></router-view>
+      </keep-alive>
+      <router-view v-if="!$route.meta.keepAlive"></router-view>
+      <!--底部tab导航-->
       <footer-tabs/>
     </div>
   </div>
 </template>
 <script>
   import ChoiceDevice from './components/ChoiceDevice/ChoiceDevice'
-  import footerTabs from '@/baseComponents/footerTab'
+  import footerTabs from '@/views/footerTab'
   import {IsPC} from './utils/common.js'
   export default {
     name: 'App',

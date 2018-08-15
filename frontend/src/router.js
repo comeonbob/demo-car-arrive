@@ -10,12 +10,18 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      meta: {
+        keepAlive: false // 不需要缓存
+      }
     },
     {
       path: '/about',
       name: 'about',
-      component: About
+      component: About,
+      meta: {
+        keepAlive: false // 不需要缓存
+      }
     }
   ]
 })
