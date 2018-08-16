@@ -4,12 +4,15 @@
     <ul class="tabs-cont">
       <li class="tab-item tab-item-one" @click="backHome">
         <span class="icon-cont"></span>
+        <!-- <span class="icon-word">返回首页</span> -->
       </li>
       <li class="tab-item tab-item-two" @click="editInfo">
         <span class="icon-cont"></span>
+        <!-- <span class="icon-word">编辑信息</span> -->
       </li>
       <li class="tab-item tab-item-three" @click="personInfo">
         <span class="icon-cont"></span>
+        <!-- <span class="icon-word">个人中心</span> -->
       </li>
     </ul>
   </div>
@@ -25,7 +28,7 @@ export default {
   methods: {
     // 返回主页
     backHome () {
-      this.$router.push({name: "/"})
+      this.$router.push('/')
     },
     // 编辑信息
     editInfo () {
@@ -55,10 +58,12 @@ export default {
       .tab-item{
         flex:1;
         height: 100%;
+        padding-top:.15rem;
         .icon-cont{
-          display: inline-block;
-          width:.4rem;
-          height:.4rem;
+          display: block;
+          width:.3rem;
+          height:.3rem;
+          margin: 0 auto;
         }
         &.tab-item-one{
           .icon-cont{
